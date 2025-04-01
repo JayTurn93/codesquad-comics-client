@@ -4,7 +4,7 @@ function Header() {
         <header>
             <nav>
                 <div>
-                <a href="#"><img src="./images/CodeSquad-Comics-logo.png" alt="CodeSquad Comics"/></a>
+                <a href="#"><img src="./images/CodeSquad-Comics-logo.jpg" alt="CodeSquad Comics"/></a>
                 </div>
                 <div className="navspace">
                 <div>

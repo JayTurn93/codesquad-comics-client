@@ -31,7 +31,7 @@ function Footer() {
                 <div className="feetheads">A PRODUCT OF</div><br />
                 <div>
                 <a href="#">
-                <img src="./images/CodeSquad-logo-b.png" alt="CodeSquad"/></a>
+                <img src="./images/CodeSquad-logo.jpg" alt="CodeSquad"/></a>
                 </div>
             </div>  
             </span>
