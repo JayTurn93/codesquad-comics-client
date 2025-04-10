@@ -1,8 +1,24 @@
-import booksData from '../data/books';
+import { useEffect, useState } from 'react';
+import books from '../data/books';
 
-const id = "66b62a49-a8de-4914-ab3f-49fe0554c08a"
+
 
 function Update() {
+    const id = "66b62a49-a8de-4914-ab3f-49fe0554c08a"
+    const [book, setBook] = useState("");
+    console.log("acivate", book) //checking before we start
+    
+    useEffect(() => {
+        const theBook = books.find(books => books._id === id)
+        console.log("Check Up.")
+        localStorage.setItem("theBook", JSON.stringify(theBook));
+        // console.log(theBook)
+        setBook(theBook);
+        // console.log("final test:", book)
+        
+    }, [])
+    console.log(book) //checkin to see if book stayed updated
+    
     return (
       <div>
         <main className="twotone">

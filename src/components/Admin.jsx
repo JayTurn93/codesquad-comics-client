@@ -1,6 +1,21 @@
 import booksData from "../data/books"
+import { useState, useEffect } from "react";
+import books from "../data/books";
 
 function Admin() {
+
+    const [collectionBooks, setCollectionBooks] = useState([]);
+
+    useEffect(() => {
+        const theBooks = books;
+        console.log("Check Up.")
+        localStorage.setItem("theBooks", JSON.stringify(theBooks));
+        // console.log(theBook)
+        setCollectionBooks(theBooks);
+    }, [])
+
+    console.log("collection test:", collectionBooks)
+
     return (
       <div>
         <main className="twotone">
@@ -16,8 +31,8 @@ function Admin() {
                 </tr>
                 </thead>
                 <tbody>
-                    {booksData.map((book) => 
-                    <tr>
+                    {collectionBooks.map((book) => 
+                    <tr key={book._id}>
                     <td className="odds">{book.title}</td>
                     <td className="odds"><button className="bluebutton">EDIT</button></td>
                     <td className="odds"><button className="yellowbutton">DELETE</button></td>

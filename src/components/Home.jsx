@@ -1,13 +1,18 @@
-import booksData from "../data/books";
+import books from "../data/books";
 import { useEffect, useState } from "react";
 
 function Home() {
-    const [books, setBooks] = useState([]);
+    const [collectionBooks, setCollectionBooks] = useState([]);
 
-    useEffect (() => {
-        const currentBooks = booksData
-        console.log(currentBooks);
-    }, [books])
+    useEffect(() => {
+        const theBooks = books;
+        console.log("Check Up.")
+        localStorage.setItem("theBooks", JSON.stringify(theBooks));
+        // console.log(theBook)
+        setCollectionBooks(theBooks);
+    }, [])
+
+    console.log("collection test:", collectionBooks)
 
     return (
       <div>
@@ -15,8 +20,8 @@ function Home() {
             <h1>COMPLETE COMIC COLLECTION</h1>
             <section className="indexcontainer">
             <section className="comics-list">
-                {booksData.map((book) =>  
-                    <div className="comic-info">
+                {collectionBooks.map((book) =>  
+                    <div className="comic-info" key={book._id}>
                         <a href="#"
                         ><img
                             src={book.imageUrl}
