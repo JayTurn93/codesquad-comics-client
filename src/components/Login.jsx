@@ -1,4 +1,9 @@
-function Login() {
+function Login(props) {
+  console.log(props);
+
+  function handleForm(e) {
+    e.preventDefault();
+  }
     return (
       <div>
         <main>

@@ -1,6 +1,13 @@
 import booksData from "../data/books";
+import { useEffect, useState } from "react";
 
 function Home() {
+    const [books, setBooks] = useState([]);
+
+    useEffect (() => {
+        setBooks(booksData);
+    }, [books])
+
     return (
       <div>
         <main className="container">

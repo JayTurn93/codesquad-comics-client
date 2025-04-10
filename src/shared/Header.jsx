@@ -1,4 +1,5 @@
-function Header() {
+function Header(props) {
+  console.log(props);
     return (
       <div>
         <header>
@@ -18,7 +19,7 @@ function Header() {
                 </div>
                 </div>
                 <div className="mobnav">
-                <i class="fa-solid fa-bars"></i>
+                <i className="fa-solid fa-bars"></i>
                 </div>
             </nav>
         </header>

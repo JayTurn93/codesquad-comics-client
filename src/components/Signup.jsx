@@ -1,4 +1,5 @@
-function Signup() {
+function Signup(props) {
+    console.log(props);
     return (
       <div>
         <main>

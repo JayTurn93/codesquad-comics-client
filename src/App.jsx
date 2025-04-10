@@ -7,17 +7,19 @@ import Signup from "./components/Signup"
 import Update from "./components/Update"
 import Footer from "./shared/Footer"
 import Header from "./shared/Header"
+import { useState } from "react"
 
 function App() {
+  const [user, setUser] = useState ("");
   return (
     <div>
-      <Header />
+      <Header user={user} setUser={setUser} />
       <About />
       <Admin />
       <Create />
       <Home />
-      <Login />
-      <Signup />
+      <Login user={[user, setUser]} />
+      <Signup user={[user, setUser]} />
       <Update/>
       <Footer />
     </div>
