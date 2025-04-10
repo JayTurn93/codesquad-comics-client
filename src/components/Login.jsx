@@ -1,9 +1,11 @@
 function Login(props) {
   console.log(props);
-
-  function handleForm(e) {
+  const handleUserNameChange = (e) => {
     e.preventDefault();
-  }
+    props.setUser(e.target.value);
+    }
+  
+  
     return (
       <div>
         <main>

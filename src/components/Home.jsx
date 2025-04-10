@@ -5,7 +5,8 @@ function Home() {
     const [books, setBooks] = useState([]);
 
     useEffect (() => {
-        setBooks(booksData);
+        const currentBooks = booksData
+        console.log(currentBooks);
     }, [books])
 
     return (
