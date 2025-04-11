@@ -18,7 +18,7 @@ function App() {
       <Admin />
       <Create />
       <Home />
-      <Login user={user} />
+      <Login user={user} setUser={setUser} />
       <Signup user={user} />
       <Update/>
       <Footer />
