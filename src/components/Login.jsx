@@ -1,11 +1,14 @@
-function Login(props) {
-  console.log(props);
-  const handleUserNameChange = (e) => {
-    e.preventDefault();
-    props.setUser(e.target.value);
-    }
-  
-  
+import { useState } from "react";
+
+function Login({user, setUser}) {
+  console.log("logintest", user);
+  const handleUserChange = (e) => {
+    e.preventDefault()
+    setUser(e.target.value) //shows not a function 
+    console.log("user changes >>>", user);
+}
+
+
     return (
       <div>
         <main>
@@ -13,8 +16,8 @@ function Login(props) {
             <h1>LOGIN</h1>
             <div className="cform">
                 <div className="createcenter">
-                <label htmlFor="email">Email address:</label>
-                <input type="email" name="email" id="email" placeholder="Email" />
+                <label htmlFor="email" >Email address:</label>
+                <input type="email"  value={user} id="email" placeholder="Email" onChange={(handleUserChange)} />
                 </div> <br />
                 <div className="createcenter">
                 <label htmlFor="password">Password:</label>
