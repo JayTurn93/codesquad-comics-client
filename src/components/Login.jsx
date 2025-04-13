@@ -5,12 +5,12 @@ function Login({user, setUser}) {
   console.log("logintest", user);
   const handleUserChange = (e) => {
     e.preventDefault()
-    setUser(e.target.value) //shows not a function, UPDATE: fixed by adding property to App.jsx
+    setUser(e.target.value) //shows not a function, UPDATE: fixed by adding value property to App.jsx
     // console.log("user changes >>>", user);
 }
 const handlePasswordChange = (e) => {
   e.preventDefault()
-  setPassword(e.target.value) //shows not a function, UPDATE: fixed by adding property to App.jsx
+  setPassword(e.target.value)
   // console.log("pass changes >>>", password);
 }
 const handleSubmitLogin = (e) => {
@@ -29,7 +29,7 @@ const handleSubmitLogin = (e) => {
               <form onSubmit={handleSubmitLogin}>
                 <div className="createcenter">
                   <label htmlFor="email" >Email address:</label>
-                  <input type="email"  value={user} id="email" placeholder="Email" onChange={(handleUserChange)} />
+                  <input type="email"  value={user} id="email" placeholder="Email" onChange={handleUserChange} />
                 </div> <br />
                 <div className="createcenter">
                   <label htmlFor="password" type="password" >Password:</label>
@@ -41,10 +41,11 @@ const handleSubmitLogin = (e) => {
                       placeholder="Password"
                       onChange={handlePasswordChange} />
                 </div>
+                <input type="submit"  />
               </form>
             </div>
             <div className="loginbutton">
-            <input type="submit"  />
+            
             </div>
             </div>
         </main>

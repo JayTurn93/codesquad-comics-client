@@ -13,13 +13,13 @@ function App() {
   const [user, setUser] = useState ("");
   return (
     <div>
-      <Header user={user} />
+      <Header user={user} setUser={setUser}/>
       <About />
       <Admin />
       <Create />
       <Home />
       <Login user={user} setUser={setUser} />
-      <Signup user={user} />
+      <Signup user={user} setUser={setUser} />
       <Update/>
       <Footer />
     </div>

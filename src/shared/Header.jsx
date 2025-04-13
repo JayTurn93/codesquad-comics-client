@@ -1,5 +1,5 @@
-function Header(props) {
-  console.log(props);
+function Header({user, setUser}) {
+  console.log("");
     return (
       <div>
         <header>

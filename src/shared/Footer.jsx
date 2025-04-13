@@ -1,4 +1,4 @@
-function Footer() {
+function Footer({user, setUser}) {
     return (
       <div>
         <footer>
