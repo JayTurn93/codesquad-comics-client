@@ -19,12 +19,12 @@ function Signup({user, setUser}) {
       const handleUserChange = (e) => {
         e.preventDefault()
         setUser(e.target.value) //shows not a function, UPDATE: fixed by adding value property to App.jsx
-        // console.log("user changes >>>", user);
+        console.log("user changes >>>", user);
     }
     const handlePasswordChange = (e) => {
       e.preventDefault()
       setPassword(e.target.value)
-      // console.log("pass changes >>>", password);
+      console.log("pass changes >>>", password);
     }
 
     const handleSubmitSignup = (e) => {

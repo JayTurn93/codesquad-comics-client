@@ -20,7 +20,7 @@ function App() {
       <Home />
       <Login user={user} setUser={setUser} />
       <Signup user={user} setUser={setUser} />
-      <Update/>
+      <Update />
       <Footer />
     </div>
   )
