@@ -5,10 +5,10 @@ function Create() {
     const [author, setAuthor] = useState("");
     const [publisher, setPublisher] = useState("");
     const [genre, setGenre] = useState("");
-    const [pages, setPages] = useState("");
-    const [rating, setRating] = useState("");
+    const [pages, setPages] = useState(0);
+    const [rating, setRating] = useState(0);
     const [synopsis, setSynopsis] = useState("");
-
+    // I know i can use a object to shorten this entire set of useStates I have above. A change for the future.
     const handleTitleChange = (e) => {
         e.preventDefault()
         setTitle(e.target.value);

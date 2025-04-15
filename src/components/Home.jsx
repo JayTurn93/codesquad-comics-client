@@ -3,13 +3,24 @@ import { useEffect, useState } from "react";
 
 function Home() {
     const [collectionBooks, setCollectionBooks] = useState([]);
+    const url = "https://course-project-codesquad-comics-server.onrender.com/api/books"
 
     useEffect(() => {
-        const theBooks = books;
-        console.log("Check Up.")
-        localStorage.setItem("theBooks", JSON.stringify(theBooks));
-        // console.log(theBook)
-        setCollectionBooks(theBooks);
+        // const theBooks = books;
+        // console.log("Check Up.")
+        // localStorage.setItem("theBooks", JSON.stringify(theBooks));
+        // // console.log(theBook)
+        // setCollectionBooks(theBooks);
+        
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("some", data);
+                setCollectionBooks([data]);
+            })
+            
+            .catch((error) => console.log(error))
+        
     }, [])
 
     console.log("collection test:", collectionBooks)
