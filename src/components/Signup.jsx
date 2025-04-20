@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import styles from "../App.module.css"
 
 function Signup({user, setUser}) {
     console.log(user);
@@ -37,22 +37,22 @@ function Signup({user, setUser}) {
     return (
       <div>
         <main>
-            <div className="container">
+            <div className={styles.container}>
                 <h1>SIGN UP</h1>
-                <form onSubmit={handleSubmitSignup} className="cform">
-                    <div className="createcenter">
+                <form onSubmit={handleSubmitSignup} className={styles.cform}>
+                    <div className={styles.createcenter}>
                         <label htmlFor="firstName">First Name:</label>
                         <input type="text" name="firstName" id="firstName" value={firstName}  onChange={handleFirstNameChange} />
                     </div>
-                    <div className="createcenter">
+                    <div className={styles.createcenter}>
                         <label htmlFor="lastName">Last Name:</label>
                         <input type="text" name="lastName" id="lastName" value={lastName} onChange={handleLastNameChange} />
                     </div>
-                    <div className="createcenter">
+                    <div className={styles.createcenter}>
                         <label htmlFor="email">Email address:</label>
                         <input type="email" name="email" id="email" placeholder="Email" value={user} onChange={handleUserChange}    />
                     </div> <br />
-                    <div className="createcenter">
+                    <div className={styles.createcenter}>
                         <label htmlFor="password">Password:</label>
                         <input
                             type="password"
@@ -62,7 +62,7 @@ function Signup({user, setUser}) {
                             onChange={handlePasswordChange}/>
                     </div>
                 </form>
-                <div className="loginbutton">
+                <div className={styles.loginbutton}>
                   <input type="submit" />
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../App.module.css"
 
 function Create() {
     const [title, setTitle] = useState("");
@@ -45,12 +46,12 @@ function Create() {
 
     return (
       <div>
-        <main className="twotone">
-            <section className="container">
+        <main className={styles.twotone}>
+            <section className={styles.container}>
                 <h1>CREATE NEW COMIC</h1>
-                <div className="cform">
+                <div className={styles.cform}>
                     <form onSubmit={handleSubmit}>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="title">Title:</label>
                                 <input
                                 type="text"
@@ -59,7 +60,7 @@ function Create() {
                                 placeholder="Title"
                                 onChange={handleTitleChange}/>
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                                 <label htmlFor="author">Author:</label>
                                 <input
                                 type="text"
@@ -68,7 +69,7 @@ function Create() {
                                 placeholder="Author"
                                 onChange={handleAuthorChange}/>
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="publisher">Publisher:</label>
                             <select name="publishers" id="publisher-select" onChange={handlePublisherChange}>
                                 <option value="selection" defaultValue={publisher}>Select</option>
@@ -82,7 +83,7 @@ function Create() {
                                 <option value="Top Shelf Productions">Top Shelf Productions</option>
                                 <option value="VIZ Media LLC">VIZ Media LLC</option></select>
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="genre">Genre:</label>
                             <input
                                 type="text"
@@ -91,7 +92,7 @@ function Create() {
                                 placeholder="Genre"
                                 onChange={handleGenre}/>
                         </div> 
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="pages">Number of Pages:</label>
                             <input
                                 type="text"
@@ -100,7 +101,7 @@ function Create() {
                                 placeholder="Number of Pages"
                                 onChange={handlePageChange}/>
                         </div>  
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="rating">Rating:</label>
                             <select name="rating" id="rating" onChange={handleRatingChange}>
                                 <option defaultValue={rating}>Number 0 to 5</option>
@@ -112,7 +113,7 @@ function Create() {
                                 <option value="5">5</option>
                             </select>
                         </div>  
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label>Synopsis:</label>
                             <textarea
                                 name="synop"
@@ -122,7 +123,7 @@ function Create() {
                                 onChange={handleSynopsisChange} >
                             </textarea>
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <input type="submit" />
                         </div> 
                     </form>

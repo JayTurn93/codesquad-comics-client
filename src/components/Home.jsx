@@ -1,50 +1,39 @@
-import books from "../data/books";
+// import books from "../data/books";
 import { useEffect, useState } from "react";
+import books from "../data/books";
+import styles from "../App.module.css";
 
 function Home() {
     const [collectionBooks, setCollectionBooks] = useState([]);
     const url = "https://course-project-codesquad-comics-server.onrender.com/api/books"
 
-    useEffect(() => {
-        // const theBooks = books;
-        // console.log("Check Up.")
-        // localStorage.setItem("theBooks", JSON.stringify(theBooks));
-        // // console.log(theBook)
-        // setCollectionBooks(theBooks);
+    useEffect (() => {
+        setCollectionBooks(books)
         
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("some", data);
-                setCollectionBooks([data]);
-            })
-            
-            .catch((error) => console.log(error))
-        
+        // fetch(url)
+        // .then(response => response.json())
+        // .then(json => setCollectionBooks(json))
     }, [])
 
     console.log("collection test:", collectionBooks)
 
     return (
       <div>
-        <main className="container">
+        <main className={styles.container}>
             <h1>COMPLETE COMIC COLLECTION</h1>
-            <section className="indexcontainer">
+            <section className={styles.indexcontainer}>
+            
             <section className="comics-list">
-                {collectionBooks.map((book) =>  
+            {collectionBooks.map((book) =>  
                     <div className="comic-info" key={book._id}>
                         <a href="#"
-                        ><img
-                            src={book.imageUrl}
-                            alt={book.title}
-                            style={{width: "200px"}} /></a><br />
+                        ><img src={book.imageUrl} alt={book.title}style={{width: "200px"}} /></a><br />
                         <i>{book.title}</i><br />
                         {book.author} <br />
                         {book.rating} <br />
                         <a href="#">Details</a>
                     </div>
-                    )
-                }
+                )}
                 {/* <div className="comic-info">
                     <a href="#"
                     ><img
@@ -178,7 +167,7 @@ function Home() {
                     <a href="#">Details</a>
                 </div> */}
                 </section>
-                <button className="indexbutton">DISPLAY MORE</button>
+                <button className={styles.indexbutton}>DISPLAY MORE</button>
             </section>
         </main>
       </div>

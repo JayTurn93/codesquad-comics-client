@@ -1,10 +1,12 @@
+import styles from "../App.module.css"
+
 function Footer({user, setUser}) {
     return (
       <div>
         <footer>
-            <span className="feet">
+            <span className={styles.feet}>
                 <div>
-                <div className="feetheads">VISIT US</div><br />
+                <div className={styles.feetheads}>VISIT US</div><br />
                     <div>
                         CodeSquad Comics <br />
                         123 Dorchester Avenue <br />
@@ -12,7 +14,7 @@ function Footer({user, setUser}) {
                     </div>
                 </div>
             <div>
-                <div className="feetheads">LINKS</div><br />
+                <div className={styles.feetheads}>LINKS</div><br />
                 <div>
                 <a href="#">Home<br /></a>
                 <a href="#">About<br /></a>
@@ -20,7 +22,7 @@ function Footer({user, setUser}) {
                 </div>
             </div>
             <div>
-                <div className="feetheads">FOLLOW US</div><br />
+                <div className={styles.feetheads}>FOLLOW US</div><br />
                 <div>
                 <a href="#"><i className="fa-brands fa-square-facebook"></i></a>
                 <a href="#"><i className="fa-brands fa-instagram"></i></a>
@@ -28,7 +30,7 @@ function Footer({user, setUser}) {
                 </div>
             </div>
             <div>
-                <div className="feetheads">A PRODUCT OF</div><br />
+                <div className={styles.feetheads}>A PRODUCT OF</div><br />
                 <div>
                 <a href="#">
                 <img src="./images/CodeSquad-logo.jpg" alt="CodeSquad"/></a>

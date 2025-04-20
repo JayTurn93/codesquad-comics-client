@@ -7,6 +7,7 @@ import Signup from "./components/Signup"
 import Update from "./components/Update"
 import Footer from "./shared/Footer"
 import Header from "./shared/Header"
+// import "./App.css"
 import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
 

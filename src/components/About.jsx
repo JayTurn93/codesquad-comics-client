@@ -1,9 +1,11 @@
+import styles from "../App.module.css"
+
 function About() {
     return (
       <div>
-        <main className="twotone">
-            <section className="container">
-                <h1 className="myheader">
+        <main className={styles.twotone}>
+            <section className={styles.container}>
+                <h1 className={styles.myheader}>
                     <p>ABOUT CODESQAUD COMICS</p>
                 </h1>
                 <p>
@@ -16,7 +18,7 @@ function About() {
                     homepage and clicking the image of the book cover or the Details link
                     for the desired graphic novel.
                 </p>
-                <h2 className="myheader">COLLECTION DETAILS</h2>
+                <h2 className={styles.myheader}>COLLECTION DETAILS</h2>
                 <ul>
                     <li>total comic books: 12</li>
                     <li>latest additions: 12</li>

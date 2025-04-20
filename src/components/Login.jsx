@@ -1,4 +1,5 @@
 import { useState } from "react"; // i also turned this off and im not sure if it makes a difference 
+import styles from "../App.module.css"
 
 function Login({user, setUser}) {
   const [password, setPassword] = useState("");
@@ -23,15 +24,15 @@ const handleSubmitLogin = (e) => {
     return (
       <div>
         <main>
-            <div className="container">
+            <div className={styles.container}>
             <h1>LOGIN</h1>
-            <div className="cform">
+            <div className={styles.cform}>
               <form onSubmit={handleSubmitLogin}>
                 <div className="createcenter">
                   <label htmlFor="email" >Email address:</label>
                   <input type="email"  value={user} id="email" placeholder="Email" onChange={handleUserChange} />
                 </div> <br />
-                <div className="createcenter">
+                <div className={styles.createcenter}>
                   <label htmlFor="password" type="password" >Password:</label>
                   <input
                       type="password"
@@ -41,11 +42,10 @@ const handleSubmitLogin = (e) => {
                       placeholder="Password"
                       onChange={handlePasswordChange} />
                 </div>
-                <input type="submit"  />
+                <div className={styles.loginbutton}>
+                  <input type="submit"  />
+                </div>
               </form>
-            </div>
-            <div className="loginbutton">
-            
             </div>
             </div>
         </main>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import books from '../data/books';
+import styles from "../App.module.css"
 
 
 
@@ -16,7 +17,7 @@ function Update() {
         setBook(theBook);
         console.log("final test:", book)
         
-    }, [])
+    }, [book])
     console.log(book) //checkin to see if book stayed updated
     const handleUpdate = (e) => {
         e.preventDefault()
@@ -32,12 +33,12 @@ function Update() {
     
     return (
       <div>
-        <main className="twotone">
-            <div className="container">
+        <main className={styles.twotone}>
+            <div className={styles.container}>
                 <div>
                     <h1>UPDATE COMIC</h1>
                     <form onChange={handleUpdate} onSubmit={handleUpdate} >
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="title">Title:</label>
                             <input
                             type="text"
@@ -45,7 +46,7 @@ function Update() {
                             name="title"
                             value={book.title} />
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="author">Author: </label>
                             <input
                             type="text"
@@ -53,7 +54,7 @@ function Update() {
                             name="author"
                             value="author value stored in database" />
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="publisher">Publisher: </label>
                             <select name="publishers" id="publisher-select" >
                             <option value="BOOM! Box">BOOM! Box</option>
@@ -69,7 +70,7 @@ function Update() {
                             publisher value stored in database</option>
                             </select>
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="Genre">Genre: </label>
                             <input
                             type="text"
@@ -77,20 +78,20 @@ function Update() {
                             name="genre"
                             value="genre data stored in database" />
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="pages">Number of Pages: </label>
                             <input type="text" id="pages" name="pages" value="pages value stored in database" />
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="rating">Rating: </label>
                             <input name="rating" id="rating" value="rating value stored in database" ></input>
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <label htmlFor="synop">Synopsis: </label>
                             <textarea name="synop" id="synop" rows="2" cols="25">
                             synopsis value stored in database</textarea>
                         </div>
-                        <div className="createcenter">
+                        <div className={styles.createcenter}>
                             <button  type="submit" className="submitbutton">Submit</button>
                         </div>
                     </form>

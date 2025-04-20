@@ -1,6 +1,7 @@
 import booksData from "../data/books"
 import { useState, useEffect } from "react";
 import books from "../data/books";
+import styles from "../App.module.css"
 
 function Admin() {
 
@@ -18,11 +19,11 @@ function Admin() {
 
     return (
       <div>
-        <main className="twotone">
-            <section className="container">
-            <h1 className="createcenter">ADMIN PAGE</h1>
-            <button className="addcomic">Add New Comic</button>
-            <table className="admintable">
+        <main className={styles.twotone}>
+            <section className={styles.container}>
+            <h1 className={styles.createcenter}>ADMIN PAGE</h1>
+            <button className={styles.addcomic}>Add New Comic</button>
+            <table className={styles.admintable}>
                 <thead>
                 <tr>
                     <th className="adminhead">COMIC TITLE</th>
@@ -33,9 +34,9 @@ function Admin() {
                 <tbody>
                     {collectionBooks.map((book) => 
                     <tr key={book._id}>
-                    <td className="odds">{book.title}</td>
-                    <td className="odds"><button className="bluebutton">EDIT</button></td>
-                    <td className="odds"><button className="yellowbutton">DELETE</button></td>
+                    <td className={styles.odds}>{book.title}</td>
+                    <td className={styles.odds}><button className="bluebutton">EDIT</button></td>
+                    <td className={styles.odds}><button className="yellowbutton">DELETE</button></td>
                     </tr>
                     )
                     }
