@@ -6,14 +6,25 @@ import styles from "../App.module.css"
 function Admin() {
 
     const [collectionBooks, setCollectionBooks] = useState([]);
+    const url = "https://course-project-codesquad-comics-server.onrender.com/api/books"
+    const urlDelete = "https://course-project-codesquad-comics-server.onrender.com/api/books/delete/${bookId}"
 
     useEffect(() => {
-        const theBooks = books;
-        console.log("Check Up.")
-        localStorage.setItem("theBooks", JSON.stringify(theBooks));
+        // const theBooks = books;
+        // console.log("Check Up.")
+        // localStorage.setItem("theBooks", JSON.stringify(theBooks));
         // console.log(theBook)
-        setCollectionBooks(theBooks);
+        // setCollectionBooks(theBooks);
+        fetch(url)
+        .then(response => setCollectionBooks(response))
+        .catch(() => console.log(("Theres a problem.")))
+        
     }, [])
+
+    const deleteBook = () => {fetch(urlDelete, {method: "delete"})
+            .then(console.log("successful"))
+            .catch(console.log("unsuccessful"))
+        }
 
     console.log("collection test:", collectionBooks)
 
@@ -35,8 +46,8 @@ function Admin() {
                     {collectionBooks.map((book) => 
                     <tr key={book._id}>
                     <td className={styles.odds}>{book.title}</td>
-                    <td className={styles.odds}><button className="bluebutton">EDIT</button></td>
-                    <td className={styles.odds}><button className="yellowbutton">DELETE</button></td>
+                    <td className={styles.odds}><button className={styles.bluebutton} >EDIT</button></td>
+                    <td className={styles.odds}><button className={styles.yellowbutton} onClick={deleteBook.bookId}>DELETE</button></td>
                     </tr>
                     )
                     }

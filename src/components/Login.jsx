@@ -1,8 +1,11 @@
 import { useState } from "react"; // i also turned this off and im not sure if it makes a difference 
 import styles from "../App.module.css"
+import { useNavigate } from "react-router-dom";
 
 function Login({user, setUser}) {
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
+  const url = "https://course-project-codesquad-comics-server.onrender.com/login/local"
   console.log("logintest", user);
   const handleUserChange = (e) => {
     e.preventDefault()
@@ -16,20 +19,30 @@ const handlePasswordChange = (e) => {
 }
 const handleSubmitLogin = (e) => {
   e.preventDefault()
-  console.log("trying to",user, password);
+  const body = {
+    user: e.target.user,
+    password: e.target.user
+  }
+  JSON.stringify(body)
+  fetch(url, {method: "post"})
+  .then(localStorage.setItem("user", JSON.stringify(user)))
+  .then(console.log("going good"))
+  .then(navigate("/admin"))
+  console.log("trying to",user, password)
+  .catch(console.error)
   
 }
 
 
     return (
       <div>
-        <main>
+        <main className={styles.twotone}>
             <div className={styles.container}>
             <h1>LOGIN</h1>
             <div className={styles.cform}>
               <form onSubmit={handleSubmitLogin}>
-                <div className="createcenter">
-                  <label htmlFor="email" >Email address:</label>
+                <div className={styles.createcenter}>
+                  <label htmlFor="email" >Email:</label>
                   <input type="email"  value={user} id="email" placeholder="Email" onChange={handleUserChange} />
                 </div> <br />
                 <div className={styles.createcenter}>

@@ -233,8 +233,9 @@ h2{
 }
 .bluebutton{
   background-color: var(--Blue);
+  text-align: center;
   color: white;
-  width: 4em;
+  width: 6em;
   border: 1px solid var(--Blue);
   
   
@@ -242,6 +243,7 @@ h2{
 .admintable{
   background-color: var(--Grey);
   border: 1px solid var(--Blue);
+  width: auto;
   margin: auto;
 }
 .adminhead{
@@ -467,12 +469,13 @@ h1{
   
 }
 @media screen and (min-width: 1024px) {
-  /* nav {
+  nav {
+    width: auto;
       img{
           width: 300px;
           height: 100%;
       }
-  } */
+  }
   .mobnav{
       display: none;
   }
@@ -522,9 +525,15 @@ h1{
       border-left: 0;
   }
 
-  
+  .admintable{
+    background-color: var(--Grey);
+    border: 1px solid var(--Blue);
+    width: 80%;
+    margin: auto;
+  }
   
 }
+
 
 
 

@@ -1,6 +1,6 @@
 // import books from "../data/books";
 import { useEffect, useState } from "react";
-import books from "../data/books";
+// import books from "../data/books";
 import styles from "../App.module.css";
 
 function Home() {
@@ -8,14 +8,15 @@ function Home() {
     const url = "https://course-project-codesquad-comics-server.onrender.com/api/books"
 
     useEffect (() => {
-        setCollectionBooks(books)
+        // setCollectionBooks(books)
         
-        // fetch(url)
-        // .then(response => response.json())
-        // .then(json => setCollectionBooks(json))
+        fetch(url, {method: "get"})
+        .then(response => response.json())
+        .then((data) => setCollectionBooks(data.books))
+        .catch(console.error)
     }, [])
 
-    console.log("collection test:", collectionBooks)
+    // console.log("collection test:", collectionBooks)
 
     return (
       <div>

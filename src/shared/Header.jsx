@@ -5,7 +5,7 @@ function Header({user, setUser}) {
     return (
       <div>
         <header>
-            <nav>
+            <nav className={styles.nav}>
                 <div>
                 <a href="#"><img src="./images/CodeSquad-Comics-logo.jpg" alt="CodeSquad Comics"/></a>
                 </div>

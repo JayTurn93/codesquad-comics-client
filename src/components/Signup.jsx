@@ -1,11 +1,14 @@
 import { useState } from "react";
 import styles from "../App.module.css"
+import { useNavigate } from "react-router-dom";
 
 function Signup({user, setUser}) {
+    const navigate = useNavigate();
     console.log(user);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
+    const url ="https://course-project-codesquad-comics-server.onrender.com/signup";
     const handleFirstNameChange = (e) => {
         e.preventDefault();
         setFirstName(e.target.value);
@@ -29,6 +32,17 @@ function Signup({user, setUser}) {
 
     const handleSubmitSignup = (e) => {
       e.preventDefault()
+      const body = {
+        user: e.target.user,
+        password: e.target.user
+      }
+      JSON.stringify(body)
+      fetch(url, {method: "post"})
+      .then(localStorage.setItem("user", JSON.stringify(user)))
+      .then(console.log("going good"))
+      .then(navigate("/admin"))
+      console.log("trying to",user, password)
+      .catch(console.error)
       console.log("trying to",user, password, firstName, lastName);
       
     }
@@ -36,7 +50,7 @@ function Signup({user, setUser}) {
 
     return (
       <div>
-        <main>
+        <main className={styles.twotone}>
             <div className={styles.container}>
                 <h1>SIGN UP</h1>
                 <form onSubmit={handleSubmitSignup} className={styles.cform}>

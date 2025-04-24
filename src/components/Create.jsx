@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styles from "../App.module.css"
+import { useNavigate } from "react-router-dom";
 
 function Create() {
+    const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [publisher, setPublisher] = useState("");
@@ -9,6 +11,7 @@ function Create() {
     const [pages, setPages] = useState(0);
     const [rating, setRating] = useState(0);
     const [synopsis, setSynopsis] = useState("");
+    const createBook = "https://course-project-codesquad-comics-server.onrender.com/api/books/create"
     // I know i can use a object to shorten this entire set of useStates I have above. A change for the future.
     const handleTitleChange = (e) => {
         e.preventDefault()
@@ -41,6 +44,20 @@ function Create() {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(title, author, publisher, genre, pages, rating, synopsis);
+        const body = {
+            title: e.target.title.value,
+            author: e.target.author.value,
+            publisher: e.target.publisher,
+            genre: e.target.genre.value,
+            pages: e.target.pages.value,
+            rating: e.target.rating.value,
+            synopsis: e.target.synopsis
+          }
+        fetch(createBook, {method: "post"})
+        .then(JSON.stringify(body))
+        .then(console.log("successful"))
+        .then(navigate("/admin"))
+        .catch(console.error)
         
     }
 
