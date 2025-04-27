@@ -1,33 +1,59 @@
 import { useEffect, useState } from 'react';
 import books from '../data/books';
+import styles from "../App.module.css"
+import { useParams, useNavigate } from "react-router-dom";
 
 
 
 function Update() {
-    const id = "66b62a49-a8de-4914-ab3f-49fe0554c08a"
+    const navigate = useNavigate();
+    const { bookId } = useParams();
+    // const id = "66b62a49-a8de-4914-ab3f-49fe0554c08a"
+    const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}"
     const [book, setBook] = useState("");
     console.log("acivate", book) //checking before we start
     
     useEffect(() => {
-        const theBook = books.find(books => books._id === id)
-        console.log("Check Up.")
-        localStorage.setItem("theBook", JSON.stringify(theBook));
-        // console.log(theBook)
-        setBook(theBook);
-        console.log("final test:", book)
+        fetch(url, {method: "GET"})
+        .then(data => console.log(data))
+        .then(response => setBook(response))
+        .catch(console.error)
+        // const theBook = books.find(books => books._id === id)
+        // console.log("Check Up.")
+        // localStorage.setItem("theBook", JSON.stringify(theBook));
+        // // console.log(theBook)
+        // setBook(theBook);
+        // console.log("final test:", book)
         
     }, [])
-    console.log(book) //checkin to see if book stayed updated
-    const handleUpdate = (e) => {
-        e.preventDefault()
-        setBook(e.target.value)
-        setBook(book)
-        // book.author(e.target.value)
-        // book.publisher(e.target.value)
-        // book.genre(e.target.value)
-        // book.pages(e.target.value)
-        // book.rating(e.target.value)
-        console.log("book changing", book.title, book.pages, book.publisher)
+    // console.log(book) //checkin to see if book stayed updated
+    // const handleUpdate = (e) => {
+    //     e.preventDefault()
+    //     setBook(e.target.value)
+    //     setBook(book)
+    //     // book.author(e.target.value)
+    //     // book.publisher(e.target.value)
+    //     // book.genre(e.target.value)
+    //     // book.pages(e.target.value)
+    //     // book.rating(e.target.value)
+    //     console.log("book changing", book.title, book.pages, book.publisher)
+    // }
+    const handleSubmission = (e) => {
+        const body = {
+            title: e.target.title.value,
+            author: e.target.author.value,
+            publisher: e.target.publisher,
+            genre: e.target.genre.value,
+            pages: e.target.pages.value,
+            rating: e.target.rating.value,
+            synopsis: e.target.synopsis
+          }
+        fetch("https://course-project-codesquad-comics-server.onrender.com/api/books/edit/${bookId}", {method: "PUT", body: JSON.stringify(body)})
+        .then(result => console.log(result))
+        .then(data => setBook(data))
+        .then(navigate("/admin"))
+        .catch(error => console.log(error))
+        
     }
     
     return (
@@ -36,14 +62,14 @@ function Update() {
             <div className="container">
                 <div>
                     <h1>UPDATE COMIC</h1>
-                    <form onChange={handleUpdate} onSubmit={handleUpdate} >
-                        <div className="createcenter">
+                    <form onSubmit={handleSubmission} >
+                        <div className={styles.createcenter}>
                             <label htmlFor="title">Title:</label>
                             <input
                             type="text"
                             id="title"
                             name="title"
-                            value={book.title} />
+                            value="" />
                         </div>
                         <div className="createcenter">
                             <label htmlFor="author">Author: </label>
