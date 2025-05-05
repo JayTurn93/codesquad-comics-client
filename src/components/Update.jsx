@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import books from '../data/books';
+// import books from '../data/books';
 import styles from "../App.module.css"
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -15,8 +15,10 @@ function Update() {
     
     useEffect(() => {
         fetch(url, {method: "GET"})
-        .then(data => console.log(data))
-        .then(response => setBook(response))
+        .then((response) => response.json())
+        .then((data) => {
+            setBook(data.book)
+        })
         .catch(console.error)
 
         // const theBook = books.find(books => books._id === id)
@@ -69,8 +71,7 @@ function Update() {
                             <input
                             type="text"
                             id="title"
-                            name="title"
-                            value=""/>
+                            name="title"/>
                         </div>
                         <div className={styles.createcenter}>
                             <label htmlFor="author">Author: </label>

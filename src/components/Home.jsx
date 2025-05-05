@@ -10,13 +10,18 @@ function Home() {
     useEffect (() => {
         // setCollectionBooks(books)
         
-        fetch(url, {method: "get"})
+        fetch(url, {method: "GET"})
         .then(response => response.json())
-        .then((data) => setCollectionBooks(data.books))
+        .then((data) => {
+            const books = data.data.books
+            console.log(books)
+            setCollectionBooks(books);
+        })
         .catch(console.error)
     }, [])
 
-    // console.log("collection test:", collectionBooks)
+    console.log("collection test:", (collectionBooks))
+    
 
     return (
       <div>
@@ -25,15 +30,15 @@ function Home() {
             <section className={styles.indexcontainer}>
             
             <section className="comics-list">
-            {collectionBooks.map((book) =>  
-                    <div className="comic-info" key={book._id}>
-                        <a href="#"
-                        ><img src={book.imageUrl} alt={book.title}style={{width: "200px"}} /></a><br />
-                        <i>{book.title}</i><br />
-                        {book.author} <br />
-                        {book.rating} <br />
-                        <a href="#">Details</a>
-                    </div>
+                {collectionBooks.map((book) =>  
+                        <div className="comic-info" key={book._id}>
+                            <a href="#"
+                            ><img src={book.imageUrl} alt={book.title}style={{width: "200px"}} /></a><br />
+                            <i>{book.title}</i><br />
+                            {book.author} <br />
+                            {book.rating} <br />
+                            <a href="#">Details</a>
+                        </div>
                 )}
                 {/* <div className="comic-info">
                     <a href="#"
