@@ -57,6 +57,7 @@ function Create() {
                                 name="title"
                                 id="title"
                                 placeholder="Title"
+                                required
                                 onChange={handleTitleChange}/>
                         </div>
                         <div className="createcenter">
@@ -66,6 +67,7 @@ function Create() {
                                 name="author"
                                 id="author"
                                 placeholder="Author"
+                                required
                                 onChange={handleAuthorChange}/>
                         </div>
                         <div className="createcenter">
@@ -89,6 +91,7 @@ function Create() {
                                 name="genre"
                                 id="genre"
                                 placeholder="Genre"
+                                required
                                 onChange={handleGenre}/>
                         </div> 
                         <div className="createcenter">
@@ -97,6 +100,7 @@ function Create() {
                                 type="text"
                                 name="pages"
                                 id="pages"
+                                required
                                 placeholder="Number of Pages"
                                 onChange={handlePageChange}/>
                         </div>  
@@ -118,6 +122,7 @@ function Create() {
                                 name="synop"
                                 id="synop"
                                 placeholder="Synopsis"
+                                required
                                 defaultValue={synopsis}
                                 onChange={handleSynopsisChange} >
                             </textarea>

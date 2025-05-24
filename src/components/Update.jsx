@@ -5,7 +5,7 @@ import books from '../data/books';
 
 function Update() {
     const id = "66b62a49-a8de-4914-ab3f-49fe0554c08a"
-    const [book, setBook] = useState("");
+    const [book, setBook] = useState({});
     console.log("acivate", book) //checking before we start
     
     useEffect(() => {
@@ -43,6 +43,7 @@ function Update() {
                             type="text"
                             id="title"
                             name="title"
+                            required
                             value={book.title} />
                         </div>
                         <div className="createcenter">
@@ -51,11 +52,12 @@ function Update() {
                             type="text"
                             id="author"
                             name="author"
+                            required
                             value="author value stored in database" />
                         </div>
                         <div className="createcenter">
                             <label htmlFor="publisher">Publisher: </label>
-                            <select name="publishers" id="publisher-select" >
+                            <select name="publishers" id="publisher-select" required >
                             <option value="BOOM! Box">BOOM! Box</option>
                             <option value="DC Comics">DC Comics</option>
                             <option value="Harry N. Abrams">Harry N. Abrams</option>
@@ -75,19 +77,21 @@ function Update() {
                             type="text"
                             id="genre"
                             name="genre"
+                            required
                             value="genre data stored in database" />
                         </div>
                         <div className="createcenter">
                             <label htmlFor="pages">Number of Pages: </label>
-                            <input type="text" id="pages" name="pages" value="pages value stored in database" />
+                            <input type="text" id="pages" name="pages" value="pages value stored in database"
+                            required />
                         </div>
                         <div className="createcenter">
                             <label htmlFor="rating">Rating: </label>
-                            <input name="rating" id="rating" value="rating value stored in database" ></input>
+                            <input name="rating" id="rating" value="rating value stored in database" required ></input>
                         </div>
                         <div className="createcenter">
                             <label htmlFor="synop">Synopsis: </label>
-                            <textarea name="synop" id="synop" rows="2" cols="25">
+                            <textarea name="synop" id="synop" rows="2" cols="25" required>
                             synopsis value stored in database</textarea>
                         </div>
                         <div className="createcenter">

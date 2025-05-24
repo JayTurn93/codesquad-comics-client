@@ -10,7 +10,11 @@ import Header from "./shared/Header"
 import { useState } from "react"
 
 function App() {
-  const [user, setUser] = useState ("");
+  const [user, setUser] = useState (() => {
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : {};
+  });
+  
   return (
     <div>
       <Header user={user} setUser={setUser}/>

@@ -42,15 +42,15 @@ function Signup({user, setUser}) {
                 <form onSubmit={handleSubmitSignup} className="cform">
                     <div className="createcenter">
                         <label htmlFor="firstName">First Name:</label>
-                        <input type="text" name="firstName" id="firstName" value={firstName}  onChange={handleFirstNameChange} />
+                        <input type="text" name="firstName" id="firstName" value={firstName} required  onChange={handleFirstNameChange} />
                     </div>
                     <div className="createcenter">
                         <label htmlFor="lastName">Last Name:</label>
-                        <input type="text" name="lastName" id="lastName" value={lastName} onChange={handleLastNameChange} />
+                        <input type="text" name="lastName" id="lastName" value={lastName} required onChange={handleLastNameChange} />
                     </div>
                     <div className="createcenter">
                         <label htmlFor="email">Email address:</label>
-                        <input type="email" name="email" id="email" placeholder="Email" value={user} onChange={handleUserChange}    />
+                        <input type="email" name="email" id="email" placeholder="Email" value={user} required onChange={handleUserChange}    />
                     </div> <br />
                     <div className="createcenter">
                         <label htmlFor="password">Password:</label>
@@ -59,6 +59,7 @@ function Signup({user, setUser}) {
                             name="password"
                             id="password"
                             placeholder="Password"
+                            required
                             onChange={handlePasswordChange}/>
                     </div>
                 </form>

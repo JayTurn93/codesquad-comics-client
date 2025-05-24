@@ -29,7 +29,7 @@ const handleSubmitLogin = (e) => {
               <form onSubmit={handleSubmitLogin}>
                 <div className="createcenter">
                   <label htmlFor="email" >Email address:</label>
-                  <input type="email"  value={user} id="email" placeholder="Email" onChange={handleUserChange} />
+                  <input type="email"  value={user} id="email" placeholder="Email" required onChange={handleUserChange} />
                 </div> <br />
                 <div className="createcenter">
                   <label htmlFor="password" type="password" >Password:</label>
@@ -39,6 +39,7 @@ const handleSubmitLogin = (e) => {
                       name="password"
                       id="password"
                       placeholder="Password"
+                      required
                       onChange={handlePasswordChange} />
                 </div>
                 <input type="submit"  />
