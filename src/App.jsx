@@ -12,7 +12,11 @@ import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
 
 function App() {
-  const [user, setUser] = useState ("");
+  const [user, setUser] = useState (() => {
+    const savedUser = localStorage.getItem("user");
+    savedUser ? JSON.parse(savedUser) : {};
+  });
+  
   return (
     <div>
       <Header user={user} setUser={setUser}/>

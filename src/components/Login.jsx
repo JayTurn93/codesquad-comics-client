@@ -43,16 +43,17 @@ const handleSubmitLogin = (e) => {
               <form onSubmit={handleSubmitLogin}>
                 <div className={styles.createcenter}>
                   <label htmlFor="email" >Email:</label>
-                  <input type="email"  value={user} id="email" placeholder="Email" onChange={handleUserChange} />
+                  <input type="email"  value={user} id="email" placeholder="Email" required onChange={handleUserChange} />
                 </div> <br />
                 <div className={styles.createcenter}>
-                  <label htmlFor="password" type="password" >Password:</label>
+                  <label htmlFor="password" type="password"  >Password:</label>
                   <input
                       type="password"
                       value={password}
                       name="password"
                       id="password"
                       placeholder="Password"
+                      required
                       onChange={handlePasswordChange} />
                 </div>
                 <div className={styles.loginbutton}>

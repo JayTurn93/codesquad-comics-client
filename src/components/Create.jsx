@@ -75,6 +75,7 @@ function Create() {
                                 name="title"
                                 id="title"
                                 placeholder="Title"
+                                required
                                 onChange={handleTitleChange}/>
                         </div>
                         <div className={styles.createcenter}>
@@ -84,11 +85,12 @@ function Create() {
                                 name="author"
                                 id="author"
                                 placeholder="Author"
+                                required
                                 onChange={handleAuthorChange}/>
                         </div>
                         <div className={styles.createcenter}>
                             <label htmlFor="publisher">Publisher:</label>
-                            <select name="publishers" id="publisher-select" onChange={handlePublisherChange}>
+                            <select name="publishers" id="publisher-select" required onChange={handlePublisherChange}>
                                 <option value="selection" defaultValue={publisher}>Select</option>
                                 <option value="BOOM! Box">BOOM! Box</option>
                                 <option value="DC Comics">DC Comics</option>
@@ -107,6 +109,7 @@ function Create() {
                                 name="genre"
                                 id="genre"
                                 placeholder="Genre"
+                                required
                                 onChange={handleGenre}/>
                         </div> 
                         <div className={styles.createcenter}>
@@ -116,11 +119,12 @@ function Create() {
                                 name="pages"
                                 id="pages"
                                 placeholder="Number of Pages"
+                                required
                                 onChange={handlePageChange}/>
                         </div>  
                         <div className={styles.createcenter}>
                             <label htmlFor="rating">Rating:</label>
-                            <select name="rating" id="rating" onChange={handleRatingChange}>
+                            <select name="rating" id="rating" required onChange={handleRatingChange}>
                                 <option defaultValue={rating}>Number 0 to 5</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -136,6 +140,7 @@ function Create() {
                                 name="synop"
                                 id="synop"
                                 placeholder="Synopsis"
+                                required
                                 defaultValue={synopsis}
                                 onChange={handleSynopsisChange} >
                             </textarea>
