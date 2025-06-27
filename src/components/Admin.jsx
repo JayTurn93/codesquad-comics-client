@@ -1,14 +1,16 @@
 // import booksData from "../data/books"
 import { useState, useEffect } from "react";
 // import books from "../data/books";
-import styles from "../App.module.css"
+import styles from "../App.module.css";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Admin() {
 
     const [collectionBooks, setCollectionBooks] = useState([]);
-    const url = "https://course-project-codesquad-comics-server.onrender.com/api/books"
-    const urlDelete = "https://course-project-codesquad-comics-server.onrender.com/api/books/delete/${bookId}"
+    const url = "https://codesquad-comics-server-m49l.onrender.com/api/books"
+    const urlDelete = "https://codesquad-comics-server-m49l.onrender.com/api/books/delete/"
+    const { _id } = useParams();
 
     useEffect(() => {
         // const theBooks = books;
@@ -27,7 +29,7 @@ function Admin() {
         
     }, [])
 
-    const deleteBook = () => {fetch(urlDelete, {method: "delete"})
+    const deleteBook = () => {fetch(`${urlDelete}/${_id}`, {method: "delete"})
             .then(console.log("successful"))
             .catch(console.log("unsuccessful"))
         }
@@ -53,7 +55,7 @@ function Admin() {
                     <tr key={book._id}>
                     <td className={styles.odds}>{book.title}</td>
                     <td className={styles.odds}><Link to={`/update/${book._id}`}><button className={styles.bluebutton} >EDIT</button></Link></td>
-                    <td className={styles.odds}><button className={styles.yellowbutton} onClick={deleteBook.bookId}>DELETE</button></td>
+                    <td className={styles.odds}><button className={styles.yellowbutton} onClick={deleteBook._id}>DELETE</button></td>
                     </tr>
                     )
                     }

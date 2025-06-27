@@ -11,7 +11,7 @@ function Create() {
     const [pages, setPages] = useState(0);
     const [rating, setRating] = useState(0);
     const [synopsis, setSynopsis] = useState("");
-    const createBook = "https://course-project-codesquad-comics-server.onrender.com/api/books/create"
+    const createBook = "https://codesquad-comics-server-m49l.onrender.com/api/books/create"
     // I know i can use a object to shorten this entire set of useStates I have above. A change for the future.
     const handleTitleChange = (e) => {
         e.preventDefault()

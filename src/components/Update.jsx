@@ -7,8 +7,8 @@ import { useParams, useNavigate } from "react-router-dom";
 
 function Update() {
     const navigate = useNavigate();
-    const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}"
-    const { bookId } = useParams();
+    const url = "https://codesquad-comics-server-m49l.onrender.com/api/books/"
+    const { _id } = useParams();
     // const id = "66b62a49-a8de-4914-ab3f-49fe0554c08a"
     const [book, setBook] = useState({});
     console.log("acivate") //checking before we start
@@ -51,7 +51,7 @@ function Update() {
             rating: e.target.rating.value,
             synopsis: e.target.synopsis
           }
-        fetch("https://course-project-codesquad-comics-server.onrender.com/api/books/edit/${bookId}", {method: "PUT", body: JSON.stringify(body)})
+        fetch(`https://course-project-codesquad-comics-server.onrender.com/api/books/update/${_id}`, {method: "PUT", body: JSON.stringify(body)})
         .then(result => console.log(result))
         .then(data => setBook(data))
         .then(navigate("/admin"))

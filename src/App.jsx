@@ -1,6 +1,7 @@
 import About from "./components/About"
 import Admin from "./components/Admin"
 import Create from "./components/Create"
+import Comic from "./components/Comic"
 import Home from "./components/Home"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
@@ -24,6 +25,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/create" element={<Create />} />
+        <Route path="/comic" element={<Comic />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login user={user} setUser={setUser} />} />
         <Route path="/signup" element={<Signup user={user} setUser={setUser} />} />

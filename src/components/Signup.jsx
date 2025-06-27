@@ -8,7 +8,7 @@ function Signup({user, setUser}) {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
-    const url ="https://course-project-codesquad-comics-server.onrender.com/signup";
+    const url ="https://codesquad-comics-server-m49l.onrender.com/signup";
     const handleFirstNameChange = (e) => {
         e.preventDefault();
         setFirstName(e.target.value);

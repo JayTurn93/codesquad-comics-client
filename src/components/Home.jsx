@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
     const [collectionBooks, setCollectionBooks] = useState([]);
-    const url = "https://course-project-codesquad-comics-server.onrender.com/api/books"
+    const url = "https://codesquad-comics-server-m49l.onrender.com/api/books"
 
     useEffect (() => {
         // setCollectionBooks(books)
@@ -38,7 +38,7 @@ function Home() {
                             <i>{book.title}</i><br />
                             {book.author} <br />
                             {book.rating} <br />
-                            <a href="#">Details</a>
+                            <Link to="#">Details</Link>
                         </div>
                 )}
                 {/* <div className="comic-info">

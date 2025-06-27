@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Login({user, setUser}) {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
-  const url = "https://course-project-codesquad-comics-server.onrender.com/login/local"
+  const url = "https://codesquad-comics-server-m49l.onrender.com/login/local"
   console.log("logintest", user);
   const handleUserChange = (e) => {
     e.preventDefault()
