@@ -20,7 +20,7 @@ function Header({user, setUser}) {
         <header>
             <nav className={styles.nav}>
             <div>
-                <a href="#"><img src="./images/CodeSquad-Comics-logo.jpg" alt="CodeSquad Comics"/></a>
+                <Link to="/"><img src="./images/CodeSquad-Comics-logo.jpg" alt="CodeSquad Comics"/></Link>
                 </div>
                 <div className={styles.navspace}>
                 <div>
@@ -33,7 +33,7 @@ function Header({user, setUser}) {
                   <Link to="/admin">ADMIN</Link>
                 </div>
                 <div>
-                {user.username ? (
+                {user ? (
                   <a href="#" onClick={handleLogOut}>LOGOUT</a>
                   ) : (
                   <Link to="/login">LOGIN</Link>

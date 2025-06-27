@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 // import books from "../data/books";
 import styles from "../App.module.css";
+import { Link } from "react-router-dom";
 
 function Home() {
     const [collectionBooks, setCollectionBooks] = useState([]);

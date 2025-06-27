@@ -1,7 +1,8 @@
-import booksData from "../data/books"
+// import booksData from "../data/books"
 import { useState, useEffect } from "react";
-import books from "../data/books";
+// import books from "../data/books";
 import styles from "../App.module.css"
+import { Link } from "react-router-dom";
 
 function Admin() {
 
@@ -15,8 +16,13 @@ function Admin() {
         // localStorage.setItem("theBooks", JSON.stringify(theBooks));
         // console.log(theBook)
         // setCollectionBooks(theBooks);
-        fetch(url)
-        .then(response => setCollectionBooks(response))
+        fetch(url, {method: "GET"})
+        .then(response => response.json())
+        .then((data) => {
+            const books = data.data.books
+            console.log(books)
+            setCollectionBooks(books);
+        })
         .catch(() => console.log(("Theres a problem.")))
         
     }, [])
@@ -33,7 +39,7 @@ function Admin() {
         <main className={styles.twotone}>
             <section className={styles.container}>
             <h1 className={styles.createcenter}>ADMIN PAGE</h1>
-            <button className={styles.addcomic}>Add New Comic</button>
+            <Link to="/create"><button className={styles.addcomic}>Add New Comic</button></Link>
             <table className={styles.admintable}>
                 <thead>
                 <tr>
@@ -46,7 +52,7 @@ function Admin() {
                     {collectionBooks.map((book) => 
                     <tr key={book._id}>
                     <td className={styles.odds}>{book.title}</td>
-                    <td className={styles.odds}><button className={styles.bluebutton} >EDIT</button></td>
+                    <td className={styles.odds}><Link to={`/update/${book._id}`}><button className={styles.bluebutton} >EDIT</button></Link></td>
                     <td className={styles.odds}><button className={styles.yellowbutton} onClick={deleteBook.bookId}>DELETE</button></td>
                     </tr>
                     )
