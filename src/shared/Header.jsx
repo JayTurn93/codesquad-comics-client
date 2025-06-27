@@ -24,7 +24,7 @@ function Header({user, setUser}) {
                 </div>
                 <div className={styles.navspace}>
                 <div>
-                <Link to="/home">HOME </Link>
+                <Link to="/">HOME </Link>
                 </div>
                 <div>
                 <Link to="/about">ABOUT</Link>

@@ -29,7 +29,7 @@ function Admin() {
         
     }, [])
 
-    const deleteBook = () => {fetch(`${urlDelete}/${_id}`, {method: "delete"})
+    const deleteBook = () => {fetch(`${urlDelete}${_id}`, {method: "delete"})
             .then(console.log("successful"))
             .catch(console.log("unsuccessful"))
         }

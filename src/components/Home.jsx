@@ -33,12 +33,12 @@ function Home() {
             <section className="comics-list">
                 {collectionBooks.map((book) =>  
                         <div className="comic-info" key={book._id}>
-                            <a href="#"
-                            ><img src={book.imageUrl} alt={book.title}style={{width: "200px"}} /></a><br />
+                            <Link to={`/comic/${book._id}`}
+                            ><img src={book.imageUrl} alt={book.title}style={{width: "200px"}} /></Link><br />
                             <i>{book.title}</i><br />
                             {book.author} <br />
                             {book.rating} <br />
-                            <Link to="#">Details</Link>
+                            <Link to={`/comic/${book._id}`}>Details</Link>
                         </div>
                 )}
                 {/* <div className="comic-info">

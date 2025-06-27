@@ -53,7 +53,7 @@ function Create() {
             rating: e.target.rating.value,
             synopsis: e.target.synopsis
           }
-        fetch(createBook, {method: "post"})
+        fetch(createBook, {method: "post", headers: {"Content-Type":"application/json"}})
         .then(JSON.stringify(body))
         .then(console.log("successful"))
         .then(navigate("/admin"))

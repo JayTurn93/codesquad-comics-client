@@ -8,7 +8,7 @@ function Signup({user, setUser}) {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
-    const url ="https://codesquad-comics-server-m49l.onrender.com/signup";
+    const url ="https://codesquad-comics-server-m49l.onrender.com/auth/register";
     const handleFirstNameChange = (e) => {
         e.preventDefault();
         setFirstName(e.target.value);
@@ -37,7 +37,7 @@ function Signup({user, setUser}) {
         password: e.target.user
       }
       JSON.stringify(body)
-      fetch(url, {method: "post"})
+      fetch(url, {method: "post", headers: {"Content-Type":"application/json"}, body: JSON.stringify(body)})
       .then(localStorage.setItem("user", JSON.stringify(user)))
       .then(console.log("going good"))
       .then(navigate("/admin"))
